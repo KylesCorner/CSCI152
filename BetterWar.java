@@ -345,10 +345,10 @@ public class BetterWar {
         append_array(battlefield, card2);
 
         // Nice output to command line
-        output_single_card(card1);
-        System.out.println("Versus");
-        output_single_card(card2);
-        System.out.println("----------------------------------------------------");
+        // output_single_card(card1);
+        // System.out.println("Versus");
+        // output_single_card(card2);
+        // System.out.println("----------------------------------------------------");
 
         // Winner appends cards to deck. Shuffle.
         if(battlefield[get_length(battlefield)-2] > battlefield[get_length(battlefield)-1] ){// player 1 wins.
@@ -404,8 +404,8 @@ public class BetterWar {
      * Prints the stats of the game to the command-line.
      */
     private static void output_stats(){
-        System.out.println("Player 1 won " + wins[0] + " times.\n" + 
-        "Player 2 won " + wins[1] + " times.\n" + 
+        System.out.println("Player won " + wins[0] + " times.\n" + 
+        "CPU won " + wins[1] + " times.\n" + 
         "Number of cards flipped: " + cardsFlipped);
     }
 
@@ -442,7 +442,7 @@ public class BetterWar {
 
                 // Player left with no cards looses.
                 if(get_length(player1) == 0){
-                    System.out.println("Player 2 wins!");
+                    System.out.println("CPU wins!");
                     turn = false;
                     wins[1]++;
                     deck = generate_deck_as_int();
@@ -455,7 +455,7 @@ public class BetterWar {
                     
                 }
                 if(get_length(player2) == 0){
-                    System.out.println("Player 1 wins!");
+                    System.out.println("Player wins!");
                     turn = true;
                     wins[0]++;
                     deck = generate_deck_as_int();

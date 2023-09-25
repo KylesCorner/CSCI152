@@ -58,6 +58,10 @@ public class BetterWar {
     Bits 0-1: Represent the card's suit (0 for Spades, 1 for Clubs, 2 for Hearts, 3 for Diamonds).
     Bits 2-3: Represent the card's face value (ranging from 2 to Ace).
     The resulting array has a length of 52, with each element representing a unique card in the deck.
+    Unused
+    _^    __> Suit value = [0,3]    
+    00000000
+      ^--^> Face value = [2,14]
      */
     public static int[] generate_deck_as_int(){
         int[] deck = new int[DECK_LENGTH];

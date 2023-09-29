@@ -1,31 +1,5 @@
-/******************************************************************************
- *  Compilation:  javac StdDraw.java
- *  Execution:    java StdDraw
- *  Dependencies: none
- *
- *  Standard drawing library. This class provides a basic capability for
- *  creating drawings with your programs. It uses a simple graphics model that
- *  allows you to create drawings consisting of geometric shapes (e.g.,
- *  points, lines, circles, rectangles) in a window on your computer
- *  and to save the drawings to a file.
- *
- *  Todo
- *  ----
- *    -  Don't show window until first unbuffered drawing command or call to show()
- *       (with setVisible not set to false).
- *    -  Add support for gradient fill, etc.
- *    -  Fix setCanvasSize() so that it can be called only once.
- *    -  Should setCanvasSize() reset xScale(), yScale(), penRadius(),
- *       penColor(), and font()
- *    -  On some systems, drawing a line (or other shape) that extends way
- *       beyond canvas (e.g., to infinity) dimensions does not get drawn.
- *
- *  Remarks
- *  -------
- *    -  don't use AffineTransform for rescaling since it inverts
- *       images and strings
- *
- ******************************************************************************/
+
+
 
 import java.awt.BasicStroke;
 import java.awt.Color;

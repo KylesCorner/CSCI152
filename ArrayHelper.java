@@ -10,38 +10,19 @@
 
     concat - returns a single integer array which contains values in baseArray followed by values in arrayToConcatenate.
 
-
-
     avg - returns the average value in myArray.
-
-
 
     max - returns the max value in myArray.
 
-
-
     min - returns the min value in myArray.
-
-
 
     shuffle - shuffles the values in myArray in a random order.
 
-
-
     print - prints the values of myArray to StdOut on a single line separated by tab (i.e., use escape sequences).
-
-
 
     initialize - returns an integer array of length n initialized with initialValue.
 
-
-
     flatten - returns a single dimensional array with values of my2DArray within it (make sure this works for ragged arrays*)
-
-
-
-
-    public class ArrayHelper
  */
 public class ArrayHelper {
 
@@ -302,7 +283,6 @@ public class ArrayHelper {
      */
     public static int[] flatten(int[][] arrayInput){
         int size = arrayInput.length;
-        int index = 0;
         int[] outputArray = arrayInput[0];
 
         for(int i = 1; i < size; i++){

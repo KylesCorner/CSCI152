@@ -294,32 +294,27 @@ public class ArrayHelper {
 
     Returns:
 
-        int[]: A 1D integer array containing all the elements from arrayInput, arranged in row-wise order.
+        int[]: A 1D integer array containing all the elements from arrayInput, arranged in a linier sequence.
 
-    This method takes a 2D integer array arrayInput and flattens it into a 1D integer array outputArray. It achieves this by iterating through the rows and columns of arrayInput and arranging the 
-    elements row by row in the outputArray. The resulting outputArray contains all the elements from the input array in a single, linear sequence. The original 2D array arrayInput remains unchanged.
+    This method takes a 2D integer array arrayInput and flattens it into a 1D integer array outputArray. It does this by initializing outputArray with the elements from the first 
+    row of arrayInput. Then, it iterates through the remaining rows of arrayInput and concatenates each row to the existing outputArray using the concat method. The result is a single, 
+    linear array that contains all the elements from the input array, arranged sequentially. The original 2D array arrayInput remains unchanged.
      */
     public static int[] flatten(int[][] arrayInput){
-        int outSize = arrayInput.length;
-        int inSize = arrayInput[0].length;
+        int size = arrayInput.length;
         int index = 0;
-        int[] outputArray = new int[outSize*inSize];
+        int[] outputArray = arrayInput[0];
 
-        for(int i = 0; i < outSize; i++){
+        for(int i = 1; i < size; i++){
+            outputArray = concat(outputArray, arrayInput[i]); 
+        } 
 
-            for(int j = 0; j < inSize; j++){
-                index = (i * outSize) + j;
-                outputArray[index] = arrayInput[i][j];
-
-
-            }
-        }
 
         return outputArray;
     }
 
     public static void main(String[] args) {
-        int[][] multiArray = {{1,2,3},{4,5,6},{7,8,9}};
+        int[][] multiArray = {{1,2,3},{4,5},{7}};
         int[] flatMultiArray = flatten(multiArray);
         int[] initArray = init(5, 7);
         int[] arrayOne = {1,2,3};

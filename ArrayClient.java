@@ -62,7 +62,6 @@ public class ArrayClient {
 
       //testing concat
       StdOut.println("Testing concat on ragged array");
-      StdOut.println(LINE);
       raggedArrayConcat = ArrayHelper.concat(raggedArrayActule, arrayToConcat);
       StdOut.println(LINE);
       ArrayHelper.print(raggedArrayConcat);

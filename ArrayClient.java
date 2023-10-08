@@ -1,5 +1,5 @@
 public class ArrayClient {
-   public static final int NUMBER_OF_TESTS = 10; 
+   public static final int NUMBER_OF_TESTS = 30; 
    private static final String LINE = "-------------------------------------------";
    public static void main(String[] args) {
 
@@ -66,7 +66,7 @@ public class ArrayClient {
       StdOut.println(LINE);
       ArrayHelper.print(raggedArrayConcat);
       StdOut.println(LINE);
-      ArrayHelper.print(arrayToConcat);
+      StdOut.println("Length Test: " + (ArrayHelper.flatten(raggedArrayConcat).length == (raggedArrayActuleSize + arrayToConcat.length) ? "Pass": "Fail"));
       StdOut.println(LINE);
 
       //testing indexOf 

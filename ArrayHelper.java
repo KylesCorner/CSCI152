@@ -23,6 +23,8 @@
     initialize - returns an integer array of length n initialized with initialValue.
 
     flatten - returns a single dimensional array with values of my2DArray within it (make sure this works for ragged arrays*)
+
+    TODO: fix method arguments to match assignment.
  */
 public class ArrayHelper {
 
@@ -44,7 +46,8 @@ public class ArrayHelper {
     index of that value in the array. If no match is found after iterating through the entire array, the method returns -1 to indicate that the value was not found
     in the array. The original array remains unchanged.
     */
-    public static int indexOf(int[] arrayInput, int valueToFind){
+    //TODO add 2D documentation
+    public static int indexOf(int valueToFind, int[] arrayInput){
         int index = -1;
         int size = arrayInput.length;
         int currentValue;
@@ -60,7 +63,22 @@ public class ArrayHelper {
         }
         return index;
     }
+    public static int[] indexOf(int valueToFind, int[][] arrayInput){
+        int[] index = {-1,-1};
+        int size = arrayInput.length;
 
+        for(int i = 0; i < size; i++){
+            index[1] = indexOf(valueToFind, arrayInput[i]);
+
+            if(index[1] >= 0){
+                index[0] = i;
+                break;
+            }
+
+
+        }
+        return index;
+    }
     /*
     Description:
 
@@ -80,6 +98,7 @@ public class ArrayHelper {
     The result is a new array containing the elements from both input arrays in sequential order. The original arrays originalArray and newArray remain unchanged, and the method returns 
     the concatenated outputArray.
      */
+    //TODO: add documentation for 2D concat.
     public static int[] concat(int[] originalArray, int[] newArray){
         int originalSize = originalArray.length;
         int newSize = newArray.length;
@@ -90,7 +109,15 @@ public class ArrayHelper {
 
         return outputArray;
     }
+   public static int[][] concat(int[][] originalArray, int[] newArray){
+        int originalSize = originalArray.length;
+        int[][] outputArray = new int[originalSize+1][];
 
+        System.arraycopy(originalArray, 0, outputArray, 0, outputArray.length-1);
+        outputArray[outputArray.length-1] = newArray;
+
+        return outputArray;
+    }
     /*
     Description:
         
@@ -117,7 +144,11 @@ public class ArrayHelper {
         }
         return averageValue/size;
     }
-    
+    public static int avg(int[][] arrayInput){
+        int[] flatArrayInput = flatten(arrayInput);
+        return avg(flatArrayInput);
+
+    } 
     /*
     Description:
 
@@ -150,7 +181,22 @@ public class ArrayHelper {
 
         return maxValue;
     }
+    public static int max(int[][] arrayInput){
+        int size = arrayInput.length;
+        int maxValue = 0;
+        int currentValue = 0;
 
+        for(int i = 0; i < size; i++){
+            currentValue = max(arrayInput[i]);
+
+            if (currentValue > maxValue){
+                maxValue = currentValue;
+            }
+            
+        }
+
+        return maxValue;
+    }
     /*
     Description:
 
@@ -181,6 +227,21 @@ public class ArrayHelper {
         }
         return minValue;
     }
+    public static int min(int[][] arrayInput){
+        int size = arrayInput.length;
+        int minValue = arrayInput[0][0];
+        int currentValue;
+
+        for(int i = 0; i < size; i++){
+            currentValue = min(arrayInput[i]);
+
+            if (currentValue < minValue){
+                minValue = currentValue;
+            }
+
+        }
+        return minValue;
+    }
 
     /*
     Description:
@@ -198,8 +259,9 @@ public class ArrayHelper {
     This method applies the Fisher-Yates shuffle algorithm to shuffle the elements of the arrayInput. It iterates through the elements in reverse order, randomly selecting an index between 0 and 
     the current index (inclusive) and swapping the element at the current index with the randomly selected element. This process effectively shuffles the elements into a random order. The original array 
     arrayInput is modified, and the shuffled array is returned.
+    TODO: add documentation for 2D shuffle
      */
-    public static int[] shuffle(int[] arrayInput){
+    public static void shuffle(int[] arrayInput){
         int randomIndex,temp;
         int size = arrayInput.length - 1;
 
@@ -210,32 +272,46 @@ public class ArrayHelper {
             arrayInput[i] = temp; 
         }
 
-        return arrayInput;
+    }
+    public static void shuffle(int[][] arrayInput){
+        int outSize = arrayInput.length;
+
+        for(int outIndex = 0; outIndex < outSize; outIndex++){
+            shuffle(arrayInput[outIndex]);
+        }
+
     }
 
     /*
     Description:
 
-        Prints the elements of an integer array to the command line, separated by spaces, followed by a new line.
+        Prints the elements of an integer array or a 2D integer array to the command line, separated by spaces, followed by a new line.
 
     Parameters:
 
         arrayInput (int[]): The integer array to be printed.
+        arrayInput (int[][]): The 2D Integer Array to be printed
 
     Returns:
         
         None
 
-    This method takes an integer array arrayInput and prints its elements to the command line. Each element is followed by a space, and the entire array is printed on a single line. After printing all 
-    the elements, a new line is added to separate the output from the subsequent content. The method does not modify the array and is solely responsible for printing its contents in a readable format.
+    This method takes an integer array or a 2D integer array arrayInput and prints its elements to the command line. Each element is followed by a space, and the entire array is printed on a single line. After printing all 
+    the elements, a new line is added to separate the output from the subsequent content. If given a 2D array prints each inner array on a new line.
+    The method does not modify the array and is solely responsible for printing its contents in a readable format.
      */
     public static void print(int[] arrayInput){
         int size = arrayInput.length;
 
         for(int i = 0; i < size; i++){
-            System.out.print(arrayInput[i] + " ");
+            StdOut.print(arrayInput[i] + " ");
         }
-        System.out.println();
+        StdOut.println();
+    }
+    public static void print(int[][] arrayInput){
+        for(int outIndex = 0; outIndex < arrayInput.length; outIndex++){
+            print(arrayInput[outIndex]);
+        }
     }
 
     /*
@@ -255,12 +331,28 @@ public class ArrayHelper {
     This method creates a new integer array with a specified length length and initializes all elements in the array to the provided initialValue. It uses a loop to set each element in the array 
     to the specified initial value. The method returns the newly created and initialized array.
      */
+    //Todo: add documentation for string inital value
     public static int[] init(int length, int initialValue){
         int[] outputArray = new int[length];
         int size = length;
         for(int i = 0; i < size; i++){
             outputArray[i] = initialValue;
         }
+        return outputArray;
+    }
+    public static int[] init(int length, char command){
+        int[] outputArray = new int[length];
+
+        if(command == 'c'){
+
+            for(int i = 0; i < length; i++){
+                outputArray[i] = i;
+
+            }
+
+
+        }
+
         return outputArray;
     }
 
@@ -294,23 +386,7 @@ public class ArrayHelper {
     }
 
     public static void main(String[] args) {
-        int[][] multiArray = {{1,2,3},{4,5},{7}};
-        int[] flatMultiArray = flatten(multiArray);
-        int[] initArray = init(5, 7);
-        int[] arrayOne = {1,2,3};
-        int[] arrayTwo = {4,5,6};
-        int[] arrayOnePlusTwo = concat(arrayOne, arrayTwo);
-
-        print(arrayOnePlusTwo);
-        print(initArray);
-        print(flatMultiArray);
-        flatMultiArray = shuffle(flatMultiArray);
-        print(flatMultiArray);
-        System.out.println("Max: " + max(flatMultiArray));
-        System.out.println("Min: " + min(flatMultiArray));
-        System.out.println("Avg: " + avg(flatMultiArray));
-        System.out.println("Index at: " + indexOf(arrayOnePlusTwo, 4));
-        
+        int[][] test = {{1,2,3},{4,5},{6}};
+        print(test);
     }
-    
 }

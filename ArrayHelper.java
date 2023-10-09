@@ -24,7 +24,6 @@
 
     flatten - returns a single dimensional array with values of my2DArray within it (make sure this works for ragged arrays*)
 
-    TODO: fix method arguments to match assignment.
  */
 public class ArrayHelper {
 
@@ -135,6 +134,7 @@ public class ArrayHelper {
     The result is an integer representing the average value. Note that if the division results in a fractional value, the result is truncated to an integer, and the fractional 
     part is discarded. The original array remains unchanged.
      */
+    //TODO: add documentation for 2D array
     public static int avg(int[] arrayInput){
         int size = arrayInput.length;
         int averageValue = 0;
@@ -165,6 +165,7 @@ public class ArrayHelper {
     This method iterates through the elements of the arrayInput and keeps track of the current maximum value encountered. It compares each element to the current maximum value, 
     updating the maximum if the current element is greater. After iterating through the entire array, the method returns the maximum value found. The original array remains unchanged.
      */
+    //TODO: add documentation for 2D array
     public static int max(int[] arrayInput){
         int size = arrayInput.length;
         int maxValue = 0;
@@ -213,6 +214,7 @@ public class ArrayHelper {
     This method initializes the minValue variable with the first element of the arrayInput and then iterates through the remaining elements of the array. It compares each element to the current minValue, 
     updating the minValue if the current element is smaller. After iterating through the entire array, the method returns the minimum value found. The original array remains unchanged.
      */
+    //TODO: add documentation for 2D array
     public static int min(int[] arrayInput){
         int size = arrayInput.length;
         int minValue = arrayInput[0];
@@ -331,7 +333,7 @@ public class ArrayHelper {
     This method creates a new integer array with a specified length length and initializes all elements in the array to the provided initialValue. It uses a loop to set each element in the array 
     to the specified initial value. The method returns the newly created and initialized array.
      */
-    //Todo: add documentation for string inital value
+    //TODO: add documentation for string inital value
     public static int[] init(int length, int initialValue){
         int[] outputArray = new int[length];
         int size = length;

@@ -58,7 +58,21 @@ public class ArrayHelper {
                 index = i;
                 break;
             }
+        }
+        return index;
+    }
+    public static long indexOf(long valueToFind, long[] arrayInput){
+        long index = -1;
+        int size = arrayInput.length;
+        long currentValue;
 
+        for(int i = 0; i < size; i++){
+            currentValue = arrayInput[i];
+
+            if(currentValue == valueToFind){
+                index = i;
+                break;
+            }
         }
         return index;
     }
@@ -303,6 +317,14 @@ public class ArrayHelper {
     The method does not modify the array and is solely responsible for printing its contents in a readable format.
      */
     public static void print(int[] arrayInput){
+        int size = arrayInput.length;
+
+        for(int i = 0; i < size; i++){
+            StdOut.print(arrayInput[i] + " ");
+        }
+        StdOut.println();
+    }
+    public static void print(double[] arrayInput){
         int size = arrayInput.length;
 
         for(int i = 0; i < size; i++){

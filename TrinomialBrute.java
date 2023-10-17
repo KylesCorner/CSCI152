@@ -8,7 +8,9 @@
  in the expansion of (1+x+x2)n
 
  */
+
 public class TrinomialBrute {
+
 
     private static int trinomial(int n, int k){
         if(n == 0 && k ==0){
@@ -17,6 +19,7 @@ public class TrinomialBrute {
         if(k < -n || k > n){
             return 0;
         }
+    
 
         return trinomial(n-1, k-1) + trinomial(n-1, k) + trinomial(n-1, k+1);
     }

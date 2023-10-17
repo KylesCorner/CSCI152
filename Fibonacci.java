@@ -19,12 +19,10 @@ public class Fibonacci {
         if(n==2){
             return 1;
         }
-        if(answers[n] > 0){
-            return answers[n];
-        }
-        else{
+        if(answers[n] == 0){
             answers[n] = fib(n-1) + fib(n-2);
         }
+
         return answers[n];
 
     }

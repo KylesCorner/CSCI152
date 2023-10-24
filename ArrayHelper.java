@@ -26,7 +26,70 @@
 
  */
 public class ArrayHelper {
+    /*
+    Description:
+        Pulls and returns the first positive (greater than 0) integer value from an integer array and shifts the remaining values down to fill the gap. This method modifies the original array in place.
 
+    Parameters:
+
+        arr (int[]): The original integer array from which the first positive value will be pulled.
+
+    Returns:
+
+        int: The positive integer value that was pulled from the original array.
+
+    This method searches for the first positive integer value (greater than 0) in the original array arr and removes it, replacing it with 0. It then shifts the remaining values down to fill the gap created 
+    by the pulled value. The method returns the positive integer value that was pulled from the array. The original array is modified in place. 
+     */
+    public static int pop(int[] array){
+        int size = array.length;
+        int indexOfFirstValue = 0;
+        int card;
+
+        //getting the index of the first value > 0.
+        for(int i = 0; i < size; i++){
+            if(array[i] > 0){
+                indexOfFirstValue = i;
+                break;
+            }
+        }
+        card = array[indexOfFirstValue];
+        array[indexOfFirstValue] = 0;
+
+        //Shifting values down.
+        int actualSize = get_length(array);
+        System.arraycopy(array, 1, array, 0, actualSize);
+        array[actualSize] = 0;
+
+        return card;
+    }
+    /*
+    Description:
+        Calculates and returns the number of positive (greater than 0) integer values in an integer array. This method does not modify the original array.
+
+    Parameters:
+
+        arr (int[]): The integer array for which the length of positive values will be determined.
+
+    Returns:
+
+    int: The number of positive integer values (greater than 0) in the array.
+    This method iterates through the elements of the original array arr and counts the number of positive integer values. It then returns the count, indicating 
+    the length of the array containing positive values. The original array is not modified by this method.
+     */
+    private static int get_length(int[] array){
+        int size = array.length;
+        int indexOfFirstValue = 0;
+
+        //getting the index of the first value > 0.
+        for(int i = 0; i < size; i++){
+            if(array[i] > 0){
+                indexOfFirstValue++;
+            }
+        }
+
+        return indexOfFirstValue;
+    }    
     /*
     Description:
 

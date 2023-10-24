@@ -3,21 +3,37 @@
  * 9/20/23
  * BetterWar.java
  * 
- * Read from the command line the number of times that the user would like to play.  Please use explicit casting to take the users string value and convert it into an integer.  
- * If the user enters an invalid value i.e. a number less than or equal to 0, the program should print out an error message and terminate
+ * Read from the command line the number of times that the user would like to
+ * play.  Please use explicit casting to take the users string value and convert
+ * it into an integer.  If the user enters an invalid value i.e. a number less
+ * than or equal to 0, the program should print out an error message and
+ * terminate
  * 
- *  Assuming we know the number of times the user has requested to play the game, use the correct type of loop to handle each iteration of the game.
+ * Assuming we know the number of times the user has requested to play the game,
+ * use the correct type of loop to handle each iteration of the game.
  * 
- *  For each game the player that flips their card first should be randomly assigned (for the first game).  Each game thereafter, the winner of the previous game should have their card revealed first for the remainder of that game.
+ * For each game the player that flips their card first should be randomly
+ * assigned (for the first game).  Each game thereafter, the winner of the
+ * previous game should have their card revealed first for the remainder of that
+ * game.
  * 
- *  You should use Arrays to keep track of the state of each players deck i.e. the cards that they have in the current iteration.
+ * You should use Arrays to keep track of the state of each players deck i.e.
+ * the cards that they have in the current iteration.
  * 
- * When a player (user or the CPU) has 0 cards remaining they are declared the loser, and the next game should begin (if the user agrees to play again) i.e. use Scanner to get input from the user, and determine if they would like to 
- * play again.  If they answer "yes", the next iteration of the game should begin.  Otherwise the program should terminate, and thank the user for playing.
+ * When a player (user or the CPU) has 0 cards remaining they are declared the
+ * loser, and the next game should begin (if the user agrees to play again) i.e.
+ * use Scanner to get input from the user, and determine if they would like to 
+ * play again.  If they answer "yes", the next iteration of the game should
+ * begin.  Otherwise the program should terminate, and thank the user for
+ * playing.
  * 
- * In the case of a tie, the game should default to the following scoring system ("diamonds", "hearts", "clubs", "spades") with diamonds beating hearts, hearts beating clubs, etc..
+ * In the case of a tie, the game should default to the following scoring system
+ * ("diamonds", "hearts", "clubs", "spades") with diamonds beating hearts,
+ * hearts beating clubs, etc..
  * 
- * When the games have completed the program should print out the total number of wins for each player, as well as the total number of card flips for each game (don't count the tie as an additional card flip).
+ * When the games have completed the program should print out the total number
+ * of wins for each player, as well as the total number of card flips for each
+ * game (don't count the tie as an additional card flip).
  
 
  */
@@ -43,16 +59,20 @@ public class BetterWar {
 
     /*
     Description:
-        Generates and returns a standard deck of playing cards as an array of integers. Each integer in the array represents a card with a unique value based on its face and suit. 
-        The deck contains a total of 52 cards, with values ranging from 2 to 14 (representing numbered cards 2 through 10, and face cards Jack, Queen, King, Ace). The suits are
-        represented as integers from 0 to 3, where 0 corresponds to "Spades," 1 to "Clubs," 2 to "Hearts," and 3 to "Diamonds." The resulting array is ordered such that the cards 
-        are grouped by suit and sorted by face value. Shuffles the deck.
+        Generates and returns a standard deck of playing cards as an array of
+        integers. Each integer in the array represents a card with a unique
+        value based on its face and suit.  The deck contains a total of 52
+        cards, with values ranging from 2 to 14 (representing numbered cards 2
+        through 10, and face cards Jack, Queen, King, Ace). The suits are
+        represented as integers from 0 to 3, where 0 corresponds to "Spades," 1
+        to "Clubs," 2 to "Hearts," and 3 to "Diamonds." The resulting array is
+        ordered such that the cards are grouped by suit and sorted by face
+        value. Shuffles the deck.
 
     Parameters:
         None
 
     Returns:
-
         int[]: An array of integers representing a standard deck of playing cards, where each integer encodes both the face and suit of a card. The encoding format is as follows:
 
     Bits 0-1: Represent the card's suit (0 for Spades, 1 for Clubs, 2 for Hearts, 3 for Diamonds).
@@ -82,11 +102,12 @@ public class BetterWar {
 
     /*
     Description:
-        Outputs the human-readable representation of a single playing card, given its integer encoding. This method takes an integer card as input,
-        where the card's face value and suit are encoded, and prints the card's name in the format "Face of Suit" (e.g., "Ace of Spades").
+        Outputs the human-readable representation of a single playing card,
+        given its integer encoding. This method takes an integer card as input,
+        where the card's face value and suit are encoded, and prints the card's
+        name in the format "Face of Suit" (e.g., "Ace of Spades").
 
     Parameters:
-
         card (int): An integer encoding representing a playing card. The encoding format is as follows:
         Bits 0-1: Represent the card's suit (0 for Spades, 1 for Clubs, 2 for Hearts, 3 for Diamonds).
         Bits 2-3: Represent the card's face value (ranging from 2 to Ace).
@@ -108,12 +129,13 @@ public class BetterWar {
 
     /*
     Description:
-        Outputs the human-readable representation of an array of playing cards, given an array of integer encodings representing
-        the cards. Each integer in the array encodes both the card's suit and face value, and this method prints the names of all 
-        the cards in the array. Skipping all elements that = 0. 0 being a null value.
+        Outputs the human-readable representation of an array of playing cards,
+        given an array of integer encodings representing the cards. Each integer
+        in the array encodes both the card's suit and face value, and this
+        method prints the names of all the cards in the array. Skipping all
+        elements that = 0. 0 being a null value.
 
     Parameters:
-
         deck (int[]): An array of integers representing a deck of playing cards. Each integer in the array encodes both the card's 
         suit and face value. The encoding format is as follows:
         Bits 0-1: Represent the card's suit (0 for Spades, 1 for Clubs, 2 for Hearts, 3 for Diamonds).
@@ -122,10 +144,12 @@ public class BetterWar {
     Returns:
         None
 
-    The method iterates through the array of integer-encoded cards and uses the output_single_card method to print each card's name. 
-    After printing all the cards, it adds a line of dashes to separate the output for clarity.
-    This method is useful for displaying the contents of a deck of cards in a human-readable format, facilitating visualization and 
-    debugging while correctly considering the bit encoding of the card's suit and face value.
+    The method iterates through the array of integer-encoded cards and uses the
+    output_single_card method to print each card's name.  After printing all the
+    cards, it adds a line of dashes to separate the output for clarity.  This
+    method is useful for displaying the contents of a deck of cards in a
+    human-readable format, facilitating visualization and debugging while
+    correctly considering the bit encoding of the card's suit and face value.
      */
     private static void output_int_array_as_cards(int[] arr){
 
@@ -141,18 +165,19 @@ public class BetterWar {
 
     /*
     Description:
-        Outputs the elements of an integer array to the console, one element per line. After displaying all the elements, it adds a 
-        line of dashes to separate the output for clarity.
+        Outputs the elements of an integer array to the console, one element per
+        line. After displaying all the elements, it adds a line of dashes to
+        separate the output for clarity.
 
     Parameters:
-
         arr (int[]): An integer array containing the elements to be displayed.
 
     Returns:
         None
 
-    The method iterates through the elements of the input array arr and prints each element's value to the console on a separate line. 
-    This method is useful for debugging and displaying the contents of an integer array.
+    The method iterates through the elements of the input array arr and prints
+    each element's value to the console on a separate line.  This method is
+    useful for debugging and displaying the contents of an integer array.
      */
     private static void output_array(int[] arr){
         int size = arr.length;
@@ -165,17 +190,22 @@ public class BetterWar {
 
     /*
     Description:
-        Appends an integer element to the end of an existing integer array, replacing the first occurrence of the value 0 in the array with the new element. This method modifies the original array in place.
+        Appends an integer element to the end of an existing integer array,
+        replacing the first occurrence of the value 0 in the array with the new
+        element. This method modifies the original array in place.
 
     Parameters:
-
-        arr (int[]): The original integer array to which the element will be appended. The first occurrence of the value 0 in this array will be replaced with item_to_append.
+        arr (int[]): The original integer array to which the element will be
+        appended. The first occurrence of the value 0 in this array will be
+        replaced with item_to_append.
         item_to_append (int): The integer element to append to the array, replacing the first occurrence of 0.
 
     Returns:
         None
 
-    This method searches for the first occurrence of the value 0 in the original array arr and replaces it with the item_to_append. It modifies the original array in place, and no new array is returned.
+    This method searches for the first occurrence of the value 0 in the original
+    array arr and replaces it with the item_to_append. It modifies the original
+    array in place, and no new array is returned.
      */
     private static void append_array(int[] arr, int item_to_append){
 
@@ -195,18 +225,22 @@ public class BetterWar {
 
     /*
     Description:
-        Pulls and returns the first positive (greater than 0) integer value from an integer array and shifts the remaining values down to fill the gap. This method modifies the original array in place.
+        Pulls and returns the first positive (greater than 0) integer value from
+        an integer array and shifts the remaining values down to fill the gap.
+        This method modifies the original array in place.
 
     Parameters:
 
         arr (int[]): The original integer array from which the first positive value will be pulled.
 
     Returns:
-
         int: The positive integer value that was pulled from the original array.
 
-    This method searches for the first positive integer value (greater than 0) in the original array arr and removes it, replacing it with 0. It then shifts the remaining values down to fill the gap created 
-    by the pulled value. The method returns the positive integer value that was pulled from the array. The original array is modified in place. 
+    This method searches for the first positive integer value (greater than 0)
+    in the original array arr and removes it, replacing it with 0. It then
+    shifts the remaining values down to fill the gap created by the pulled
+    value. The method returns the positive integer value that was pulled from
+    the array. The original array is modified in place. 
      */
     private static int pull_first(int[] arr){
         int size = arr.length;
@@ -233,17 +267,20 @@ public class BetterWar {
 
     /*
     Description:
-        Calculates and returns the number of positive (greater than 0) integer values in an integer array. This method does not modify the original array.
+        Calculates and returns the number of positive (greater than 0) integer
+        values in an integer array. This method does not modify the original
+        array.
 
     Parameters:
-
         arr (int[]): The integer array for which the length of positive values will be determined.
 
     Returns:
+        int: The number of positive integer values (greater than 0) in the array.
 
-    int: The number of positive integer values (greater than 0) in the array.
-    This method iterates through the elements of the original array arr and counts the number of positive integer values. It then returns the count, indicating 
-    the length of the array containing positive values. The original array is not modified by this method.
+    This method iterates through the elements of the original array arr and
+    counts the number of positive integer values. It then returns the count,
+    indicating the length of the array containing positive values. The original
+    array is not modified by this method.
      */
     public static int get_length(int[] arr){
         int size = arr.length;
@@ -264,14 +301,16 @@ public class BetterWar {
         Shuffles the order of elements in an integer array representing a deck of cards using the Fisher-Yates shuffle algorithm. This method modifies the original array in place.
 
     Parameters:
-
         deck (int[]): The integer array representing a deck of cards to be shuffled.
 
     Returns:
         None
 
-    This method implements the Fisher-Yates shuffle algorithm to randomize the order of elements in the original deck array. It iterates through the array in reverse order, 
-    selecting a random index between 0 and the current index (inclusive), swaps the elements at those indices, and continues until all elements have been shuffled. The original deck array is modified in place.
+    This method implements the Fisher-Yates shuffle algorithm to randomize the
+    order of elements in the original deck array. It iterates through the array
+    in reverse order, selecting a random index between 0 and the current index
+    (inclusive), swaps the elements at those indices, and continues until all
+    elements have been shuffled. The original deck array is modified in place.
      */
     private static void shuffle_deck(int[] deck){
         int randomIndex,temp;
@@ -290,19 +329,22 @@ public class BetterWar {
 
     /*
     Description:
-        Simulates the initial deal of cards in a card game by pulling the top 26 cards from a shuffled deck and returning them in a new integer array. The original deck is modified as cards are pulled.
+        Simulates the initial deal of cards in a card game by pulling the top 26
+        cards from a shuffled deck and returning them in a new integer array.
+        The original deck is modified as cards are pulled.
 
     Parameters:
-
         deck (int[]): The integer array representing a shuffled deck of cards from which the initial cards will be dealt.
 
     Returns:
-
         int[]: A new integer array containing the top 26 cards from the shuffled deck, representing the initial deal.
 
-    This method starts by creating a new integer array output of size 26 to represent the initial deal. It then iteratively pulls the top card from the deck using the pull_first method and adds it to the 
-    output array. After pulling all 26 cards, it shuffles the output array to randomize the order of the dealt cards. Finally, it returns the output array, which represents the initial deal of cards. The 
-    original deck is modified as cards are pulled.
+    This method starts by creating a new integer array output of size 26 to
+    represent the initial deal. It then iteratively pulls the top card from the
+    deck using the pull_first method and adds it to the output array. After
+    pulling all 26 cards, it shuffles the output array to randomize the order of
+    the dealt cards. Finally, it returns the output array, which represents the
+    initial deal of cards. The original deck is modified as cards are pulled.
      */
     private static int[] inital_deal(int[] deck){
         int[] output = new int[DECK_LENGTH];
@@ -317,8 +359,10 @@ public class BetterWar {
 
     /*
     Description:
-        Simulates a round of card comparison in a card game (e.g., War) between two players. The method manages the comparison of two cards, updates the battlefield, 
-        and determines the winner of the round. In case of a tie, it initiates a "war" by recursively calling itself.
+        Simulates a round of card comparison in a card game (e.g., War) between
+        two players. The method manages the comparison of two cards, updates the
+        battlefield, and determines the winner of the round. In case of a tie,
+        it initiates a "war" by recursively calling itself.
 
     Parameters:
         None
@@ -326,13 +370,21 @@ public class BetterWar {
     Returns:
         None
 
-    This method simulates a round of card comparison between two players in a card game. It starts by determining which player plays their card first based on the turn 
-    variable. It pulls the top card from each player's deck, appends them to the battlefield array, and displays the cards played with a nice output to the command line.
-
-    The method then compares the face values of the cards on the battlefield to determine the winner. If player 1 wins, their cards are appended to their deck and shuffled. 
-    If player 2 wins, their cards are appended to their deck and shuffled. In the case of a tie, a "war" is initiated by recursively calling the compare_cards method.
-     
-    This method effectively handles the logic of comparing cards, resolving ties with wars, and updating players' decks based on the outcome of each round in the card game simulation.
+    This method simulates a round of card comparison between two players in a
+    card game. It starts by determining which player plays their card first
+    based on the turn variable. It pulls the top card from each player's deck,
+    appends them to the battlefield array, and displays the cards played with a
+    nice output to the command line.
+    
+    The method then compares the face values of the cards on the battlefield to
+    determine the winner. If player 1 wins, their cards are appended to their
+    deck and shuffled.  If player 2 wins, their cards are appended to their deck
+    and shuffled. In the case of a tie, a "war" is initiated by recursively
+    calling the compare_cards method.
+    
+    This method effectively handles the logic of comparing cards, resolving ties
+    with wars, and updating players' decks based on the outcome of each round in
+    the card game simulation.
      */
     private static void compare_cards(){
         int card1,card2;
@@ -409,17 +461,25 @@ public class BetterWar {
 
     /*
     Description:
-        Prompts the user to decide whether to play another game and handles the game continuation or termination based on user input. If the user chooses to continue playing 
-        ('y'), the method returns control to the game. If the user chooses to quit ('n'), the method displays a thank you message and exits the program. Also prints game stats.
+        Prompts the user to decide whether to play another game and handles the
+        game continuation or termination based on user input. If the user
+        chooses to continue playing ('y'), the method returns control to the
+        game. If the user chooses to quit ('n'), the method displays a thank you
+        message and exits the program. Also prints game stats.
+
     Parameters:
         None
 
     Returns:
         None
 
-    This method uses a Scanner to obtain user input regarding whether they want to play another game. If the user enters 'n', indicating they do not want to play another game, 
-    the method displays a thank you message, calls output_stats to display game statistics (such as the number of wins and cards played), and exits the program. 
-    If the user enters 'y', indicating they want to play another game, the method returns control to the game for the next iteration. 
+    This method uses a Scanner to obtain user input regarding whether they want
+    to play another game. If the user enters 'n', indicating they do not want to
+    play another game, the method displays a thank you message, calls
+    output_stats to display game statistics (such as the number of wins and
+    cards played), and exits the program.  If the user enters 'y', indicating
+    they want to play another game, the method returns control to the game for
+    the next iteration. 
      */
     private static void play_again(){
         Scanner sc = new Scanner(System.in);
@@ -445,9 +505,11 @@ public class BetterWar {
 
     /*
     Description:
-        Simulates a card game (e.g., War) for a specified number of games, where two players compete. The game consists of rounds where players 
-        are dealt cards, and the player who runs out of cards first loses. The method manages the game loop, keeps track of wins, and allows the 
-        user to play multiple games or exit.
+        Simulates a card game (e.g., War) for a specified number of games, where
+        two players compete. The game consists of rounds where players are dealt
+        cards, and the player who runs out of cards first loses. The method
+        manages the game loop, keeps track of wins, and allows the user to play
+        multiple games or exit.
 
     Parameters:
 
@@ -456,12 +518,19 @@ public class BetterWar {
     Returns:
         None
 
-    This method sets up the game by dealing cards to two players, player1 and player2, from a shuffled deck. It then enters a loop that runs for the 
-    specified number of games. Within each game, it enters another loop that continues until one of the players runs out of cards. If a player runs out of 
-    cards, it declares the winner, resets the game, and prompts the user to play again. The method also keeps track of the number of games played and cards flipped in each game.
-
-    The inner loop manages turns and calls the compare_cards method to determine the outcome of each round and resets the battlefield. After each game, the method checks if the specified number of 
-    games have been played or if the user chooses to quit. If the user chooses to quit or the number of games is satisfied, the method exits the game loop. 
+    This method sets up the game by dealing cards to two players, player1 and
+    player2, from a shuffled deck. It then enters a loop that runs for the 
+    specified number of games. Within each game, it enters another loop that
+    continues until one of the players runs out of cards. If a player runs out
+    of cards, it declares the winner, resets the game, and prompts the user to
+    play again. The method also keeps track of the number of games played and
+    cards flipped in each game.
+    
+    The inner loop manages turns and calls the compare_cards method to determine
+    the outcome of each round and resets the battlefield. After each game, the
+    method checks if the specified number of games have been played or if the
+    user chooses to quit. If the user chooses to quit or the number of games is
+    satisfied, the method exits the game loop. 
      */
     public static void game(int numberOfGames){
 

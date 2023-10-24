@@ -245,7 +245,7 @@ public class BetterWar {
     This method iterates through the elements of the original array arr and counts the number of positive integer values. It then returns the count, indicating 
     the length of the array containing positive values. The original array is not modified by this method.
      */
-    private static int get_length(int[] arr){
+    public static int get_length(int[] arr){
         int size = arr.length;
         int indexOfFirstValue = 0;
 
@@ -348,12 +348,6 @@ public class BetterWar {
         append_array(battlefield, card1);
         append_array(battlefield, card2);
 
-        // Nice output to command line
-        // output_single_card(card1);
-        // System.out.println("Versus");
-        // output_single_card(card2);
-        // System.out.println("----------------------------------------------------");
-
         // Winner appends cards to deck. Shuffle.
         if(battlefield[get_length(battlefield)-2] > battlefield[get_length(battlefield)-1] ){// player 1 wins.
             int size = get_length(battlefield);
@@ -374,6 +368,42 @@ public class BetterWar {
             compare_cards();
         }
 
+    }
+
+    private static void compare_cards_with_GUI(){
+        int card1,card2;
+
+        WarUI.draw_game(battlefield, player1, player2);
+        if(turn){
+        card1 = pull_first(player1);
+        card2 = pull_first(player2);
+        }else{
+        card2 = pull_first(player2);
+        card1 = pull_first(player1);
+        }
+        append_array(battlefield, card1);
+        append_array(battlefield, card2);
+
+        // Winner appends cards to deck. Shuffle.
+        if(battlefield[get_length(battlefield)-2] > battlefield[get_length(battlefield)-1] ){// player 1 wins.
+            int size = get_length(battlefield);
+            for(int i = 0; i < size; i++){
+                append_array(player1, battlefield[i]);
+            }
+            shuffle_deck(player1);
+            WarUI.draw_game(battlefield, player1, player2);
+        } 
+        if(battlefield[get_length(battlefield)-2] < battlefield[get_length(battlefield)-1] ){// player 2 wins.
+            int size = get_length(battlefield);
+            for(int i = 0; i < size; i++){
+                append_array(player2, battlefield[i]);
+            }
+            shuffle_deck(player2);
+            WarUI.draw_game(battlefield, player1, player2);
+        } 
+        if(battlefield[get_length(battlefield)-2] == battlefield[get_length(battlefield)-1] ){// players are equal. Go to war!
+            compare_cards_with_GUI();
+        }
     }
 
 
@@ -485,6 +515,48 @@ public class BetterWar {
         output_stats();
     }
 
+    public static void game_with_UI(int animationTime){
+        
+        //Setup
+        WarUI ui = new WarUI(animationTime);
+        deck = generate_deck_as_int();
+        player1 = inital_deal(deck);
+        player2 = inital_deal(deck);
+        WarUI.draw_game(battlefield, player1, player2);
+
+        while(true){
+            if(get_length(player1) == 0){
+                WarUI.draw_winner("CPU");
+                turn = false;
+                wins[1]++;
+                deck = generate_deck_as_int();
+                player1 = inital_deal(deck);
+                player2 = inital_deal(deck);
+                break;
+            }
+            if(get_length(player2) == 0){
+                WarUI.draw_winner("Player");
+                turn = true;
+                wins[0]++;
+                deck = generate_deck_as_int();
+                player1 = inital_deal(deck);
+                player2 = inital_deal(deck);
+                break;
+
+            }
+
+
+            compare_cards_with_GUI();
+
+            // reseting the battlefield
+            int size = get_length(battlefield);
+            for(int b = 0; b < size; b++){
+                battlefield[b] = 0;
+            }
+        }
+
+    }
+
     public static void main(String[] args) {
 
 
@@ -495,7 +567,8 @@ public class BetterWar {
             System.exit(0);
         }
 
-        game(numberOfGames);
+        game_with_UI(numberOfGames);
+
 
 
         // Flex upon plebians.

@@ -29,20 +29,29 @@ public class WarUI {
     }
     /*
     Description:
-        Draws a filled diamond shape at the specified coordinates (x, y) on a graphics canvas using the StdDraw library. The size of the diamond is determined by the yScale parameter,
-        and its horizontal size is derived from the yScale by halving it.
+        Draws a filled diamond shape at the specified coordinates (x, y) on a
+        graphics canvas using the StdDraw library. The size of the diamond is
+        determined by the yScale parameter, and its horizontal size is derived
+        from the yScale by halving it.
 
     Parameters:
         x (double): The x-coordinate of the center of the diamond.
         y (double): The y-coordinate of the center of the diamond.
-        yScale (double): The scaling factor that determines the size of the diamond. It represents the distance from the center of the diamond to any of its four corners.
+        yScale (double): The scaling factor that determines the size of the
+        diamond. It represents the distance from the center of the diamond to
+        any of its four corners.
 
     Returns:
         None
 
-    This method utilizes the StdDraw library to draw a filled diamond shape on a graphics canvas. The x and y parameters specify the center of the diamond, while the yScale parameter determines 
-    the distance from the center to any of its four corners. The horizontal size of the diamond is derived from yScale by halving it. The color of the diamond is set to red, and it is drawn as a 
-    filled polygon with its vertices calculated based on the center coordinates and scaling factor. The method does not return a value; it is responsible for drawing the diamond on the canvas. 
+    This method utilizes the StdDraw library to draw a filled diamond shape on a
+    graphics canvas. The x and y parameters specify the center of the diamond,
+    while the yScale parameter determines the distance from the center to any of
+    its four corners. The horizontal size of the diamond is derived from yScale
+    by halving it. The color of the diamond is set to red, and it is drawn as a 
+    filled polygon with its vertices calculated based on the center coordinates
+    and scaling factor. The method does not return a value; it is responsible
+    for drawing the diamond on the canvas. 
     */
     private static void draw_diamond(double x, double y, double yScale){
         StdDraw.setPenRadius();
@@ -65,20 +74,30 @@ public class WarUI {
     }
     /*
     Description:
-        Draws a filled heart shape at the specified coordinates (x, y) on a graphics canvas using the StdDraw library. The size of the heart is determined by the yScale parameter, and its horizontal size 
-        is derived from the yScale by halving it.
+        Draws a filled heart shape at the specified coordinates (x, y) on a
+        graphics canvas using the StdDraw library. The size of the heart is
+        determined by the yScale parameter, and its horizontal size is derived
+        from the yScale by halving it.
 
     Parameters:
         x (double): The x-coordinate of the center of the heart.
         y (double): The y-coordinate of the center of the heart.
-        yScale (double): The scaling factor that determines the size of the heart. It represents the distance from the center of the heart to its tips.
+        yScale (double): The scaling factor that determines the size of the
+        heart. It represents the distance from the center of the heart to its
+        tips.
 
     Returns:
         None
 
-    This method utilizes the StdDraw library to draw a filled heart shape on a graphics canvas. The x and y parameters specify the center of the heart, while the yScale parameter determines the distance from the center to 
-    the tips of the heart. The horizontal size of the heart is derived from yScale by halving it. The color of the heart is set to red, and it is drawn using two filled circles and a filled polygon. The circles represent 
-    the upper halves of the heart, and the polygon represents the bottom half. The method does not return a value; it is responsible for drawing the heart on the canvas.
+    This method utilizes the StdDraw library to draw a filled heart shape on a
+    graphics canvas. The x and y parameters specify the center of the heart,
+    while the yScale parameter determines the distance from the center to the
+    tips of the heart. The horizontal size of the heart is derived from yScale
+    by halving it. The color of the heart is set to red, and it is drawn using
+    two filled circles and a filled polygon. The circles represent the upper
+    halves of the heart, and the polygon represents the bottom half. The method
+    does not return a value; it is responsible for drawing the heart on the
+    canvas.
     */
     private static void draw_heart(double x, double y, double yScale){
         StdDraw.setPenRadius();
@@ -117,8 +136,10 @@ public class WarUI {
     }
     /*
     Description:
-        Draws a filled club (clover) shape at the specified coordinates (x, y) on a graphics canvas using the StdDraw library. The size of the club is determined by the yScale parameter, and 
-        its horizontal size is derived from the yScale by halving it.
+        Draws a filled club (clover) shape at the specified coordinates (x, y)
+        on a graphics canvas using the StdDraw library. The size of the club is
+        determined by the yScale parameter, and its horizontal size is derived
+        from the yScale by halving it.
 
     Parameters:
         x (double): The x-coordinate of the center of the club.
@@ -128,9 +149,14 @@ public class WarUI {
     Returns:
         None
 
-    This method utilizes the StdDraw library to draw a filled club (clover) shape on a graphics canvas. The x and y parameters specify the center of the club, while the yScale parameter determines the distance 
-    from the center to its tips. The horizontal size of the club is derived from yScale by halving it. The color of the club is set to black, and it is drawn using three filled circles and a filled rectangle. 
-    The circles represent the upper parts of the club, and the rectangle represents the stem. The method does not return a value; it is responsible for drawing the club on the canvas.
+    This method utilizes the StdDraw library to draw a filled club (clover)
+    shape on a graphics canvas. The x and y parameters specify the center of the
+    club, while the yScale parameter determines the distance from the center to
+    its tips. The horizontal size of the club is derived from yScale by halving
+    it. The color of the club is set to black, and it is drawn using three
+    filled circles and a filled rectangle.  The circles represent the upper
+    parts of the club, and the rectangle represents the stem. The method does
+    not return a value; it is responsible for drawing the club on the canvas.
      */
     private static void draw_club(double x, double y, double yScale){
         StdDraw.setPenRadius();
@@ -165,21 +191,30 @@ public class WarUI {
     }
     /*
     Description:
-        Draws a filled spade shape at the specified coordinates (x, y) on a graphics canvas using the StdDraw library. The size of the spade is determined by the yScale parameter, and its horizontal 
-        size is derived from the yScale by halving it.
+        Draws a filled spade shape at the specified coordinates (x, y) on a
+        graphics canvas using the StdDraw library. The size of the spade is
+        determined by the yScale parameter, and its horizontal size is derived
+        from the yScale by halving it.
 
     Parameters:
         x (double): The x-coordinate of the center of the spade.
         y (double): The y-coordinate of the center of the spade.
-        yScale (double): The scaling factor that determines the size of the spade. It represents the distance from the center of the spade to its tips.
+        yScale (double): The scaling factor that determines the size of the
+        spade. It represents the distance from the center of the spade to its
+        tips.
 
     Returns:
         None
 
-    This method utilizes the StdDraw library to draw a filled spade shape on a graphics canvas. The x and y parameters specify the center of the spade, while the yScale parameter determines the distance from the 
-    center to its tips. The horizontal size of the spade is derived from yScale by halving it. The color of the spade is set to black, and it is drawn using three filled circles, a filled triangle, and a filled 
-    rectangle. The circles represent the upper parts of the spade, the triangle represents the top part, and the rectangle represents the stem. The method does not return a value; it is responsible for drawing 
-    the spade on the canvas.
+    This method utilizes the StdDraw library to draw a filled spade shape on a
+    graphics canvas. The x and y parameters specify the center of the spade,
+    while the yScale parameter determines the distance from the center to its
+    tips. The horizontal size of the spade is derived from yScale by halving it.
+    The color of the spade is set to black, and it is drawn using three filled
+    circles, a filled triangle, and a filled rectangle. The circles represent
+    the upper parts of the spade, the triangle represents the top part, and the
+    rectangle represents the stem. The method does not return a value; it is
+    responsible for drawing the spade on the canvas.
      */
     private static void draw_spade(double x, double y, double yScale){
         StdDraw.setPenRadius();
@@ -220,7 +255,9 @@ public class WarUI {
     }
     /*
     Description:
-        Draws text on a graphics canvas using the StdDraw library at the specified coordinates (x, y) with the specified font scale and content (card_value).
+        Draws text on a graphics canvas using the StdDraw library at the
+        specified coordinates (x, y) with the specified font scale and content
+        (card_value).
 
     Parameters:
         x (double): The x-coordinate where the text will be drawn.
@@ -231,9 +268,12 @@ public class WarUI {
     Returns:
         None
 
-    This method utilizes the StdDraw library to draw text on a graphics canvas. The x and y parameters specify the coordinates at which the text will be drawn. The scale parameter 
-    determines the font size, and card_value specifies the content of the text. The text is drawn using the "Times New Roman" font with the specified size. The method does not return a value; 
-    it is responsible for drawing the text on the canvas.
+    This method utilizes the StdDraw library to draw text on a graphics canvas.
+    The x and y parameters specify the coordinates at which the text will be
+    drawn. The scale parameter determines the font size, and card_value
+    specifies the content of the text. The text is drawn using the "Times New
+    Roman" font with the specified size. The method does not return a value; it
+    is responsible for drawing the text on the canvas.
      */
     private static void draw_text(double x, double y, int scale, String card_value){
         Font textFont = new Font("Times New Roman", Font.PLAIN, scale);
@@ -242,7 +282,9 @@ public class WarUI {
     }
     /*
     Description:
-    Draws text on a graphics canvas using the StdDraw library at the specified coordinates (coords) and with the specified font scale for displaying the size of a deck (deck_size).
+        Draws text on a graphics canvas using the StdDraw library at the
+        specified coordinates (coords) and with the specified font scale for
+        displaying the size of a deck (deck_size).
 
     Parameters:
         coords (double[]): An array containing the x and y coordinates where the text will be drawn.
@@ -251,8 +293,12 @@ public class WarUI {
     Returns:
         None
 
-    This method utilizes the StdDraw library to draw text on a graphics canvas. The coords array contains the x and y coordinates where the text will be drawn. The font size is set to SMALL_CARD_TEXT_SCALE, 
-    which is presumably defined elsewhere in your code. The text displayed is the size of a deck, specified by deck_size. The method does not return a value; it is responsible for drawing the text on the canvas.
+    This method utilizes the StdDraw library to draw text on a graphics canvas.
+    The coords array contains the x and y coordinates where the text will be
+    drawn. The font size is set to SMALL_CARD_TEXT_SCALE, which is presumably
+    defined elsewhere in your code. The text displayed is the size of a deck,
+    specified by deck_size. The method does not return a value; it is
+    responsible for drawing the text on the canvas.
      */
     private static void draw_text(double[] coords, int deck_size){
         double x = coords[0];
@@ -263,7 +309,10 @@ public class WarUI {
     }
     /*
     Description:
-    Converts a playing card represented as an integer into an array of strings that include the card's face value and suit. This method is specifically designed for converting the card encoding used in your card game simulation.
+        Converts a playing card represented as an integer into an array of
+        strings that include the card's face value and suit. This method is
+        specifically designed for converting the card encoding used in your card
+        game simulation.
 
     Parameters:
         card (int): The integer encoding of the playing card, where bits 0-1 represent the card's suit, and bits 2-3 represent the face value.
@@ -271,8 +320,11 @@ public class WarUI {
     Returns:
         String[]: An array of strings containing the card's face value (e.g., "2", "King") at index 0 and the card's suit (e.g., "Spades", "Diamonds") at index 1.
 
-    This method takes an integer representation of a playing card, extracts its face value and suit, and returns this information as an array of two strings. The faces array and suits array are used for mapping the integer encoding 
-    to the actual card value and suit. The method returns an array with the card's face value and suit at the respective indices.
+    This method takes an integer representation of a playing card, extracts its
+    face value and suit, and returns this information as an array of two
+    strings. The faces array and suits array are used for mapping the integer
+    encoding to the actual card value and suit. The method returns an array with
+    the card's face value and suit at the respective indices.
      */
     private static String[] card_to_array(int card){
         String[] suits = {"Spades", "Clubs", "Hearts", "Diamonds"};
@@ -293,10 +345,16 @@ public class WarUI {
     Returns:
         None
 
-    This method utilizes the StdDraw library to draw a playing card on a graphics canvas. The card parameter specifies the integer encoding of the playing card, and coords contains the x and y coordinates where 
-    the card will be drawn. The card is drawn as a rectangle with a face value and a suit symbol. The card's size is determined by the constants BIG_CARD_SCALE and BIG_CARD_TEXT_SCALE, which are presumably 
-    defined elsewhere in your code. The color of the card is set to black, and it is filled with light gray. The suit symbol is drawn based on the card's suit, and the face value is displayed on the card. The 
-    method does not return a value; it is responsible for drawing the card on the canvas. 
+    This method utilizes the StdDraw library to draw a playing card on a
+    graphics canvas. The card parameter specifies the integer encoding of the
+    playing card, and coords contains the x and y coordinates where the card
+    will be drawn. The card is drawn as a rectangle with a face value and a suit
+    symbol. The card's size is determined by the constants BIG_CARD_SCALE and
+    BIG_CARD_TEXT_SCALE, which are presumably defined elsewhere in your code.
+    The color of the card is set to black, and it is filled with light gray. The
+    suit symbol is drawn based on the card's suit, and the face value is
+    displayed on the card. The method does not return a value; it is responsible
+    for drawing the card on the canvas. 
     */
     private static void draw_card_to_canvas(int card, double[] coords){
         double x = coords[0];
@@ -337,7 +395,9 @@ public class WarUI {
     }
     /*
     Description:
-        Draws the backs of playing cards on a graphics canvas using the StdDraw library based on the provided coordinates. The card backs are drawn as rectangles.
+        Draws the backs of playing cards on a graphics canvas using the StdDraw
+        library based on the provided coordinates. The card backs are drawn as
+        rectangles.
 
     Parameters:
         coords (double[]): An array containing the x and y coordinates where the card backs will be drawn on the canvas.
@@ -345,9 +405,14 @@ public class WarUI {
     Returns:
         None
 
-    This method utilizes the StdDraw library to draw the backs of playing cards on a graphics canvas. The coords parameter specifies the x and y coordinates where the card backs will be drawn. The card backs 
-    are drawn as rectangles with the specified size based on the constants SMALL_CARD_SCALE and SMALL_CARD_TEXT_SCALE, which are presumably defined elsewhere in your code. The card backs are colored red with a 
-    blue-filled rectangle inside. The method does not return a value; it is responsible for drawing the card backs on the canvas.
+    This method utilizes the StdDraw library to draw the backs of playing cards
+    on a graphics canvas. The coords parameter specifies the x and y coordinates
+    where the card backs will be drawn. The card backs are drawn as rectangles
+    with the specified size based on the constants SMALL_CARD_SCALE and
+    SMALL_CARD_TEXT_SCALE, which are presumably defined elsewhere in your code.
+    The card backs are colored red with a blue-filled rectangle inside. The
+    method does not return a value; it is responsible for drawing the card backs
+    on the canvas.
      */
     private static void draw_card_backs(double[] coords){
         double x = coords[0];
@@ -362,7 +427,9 @@ public class WarUI {
     }
     /*
     Description:
-        Draws the player's and CPU's decks, including the card backs and the number of cards in each deck, on a graphics canvas using the StdDraw library.
+        Draws the player's and CPU's decks, including the card backs and the
+        number of cards in each deck, on a graphics canvas using the StdDraw
+        library.
 
     Parameters:
         playerDeck (int[]): An array representing the player's deck of cards.
@@ -371,9 +438,14 @@ public class WarUI {
     Returns:
         None
 
-    This method utilizes the StdDraw library to draw the player's and CPU's decks on a graphics canvas. It includes the card backs and the number of cards in each deck. The sizes of the 
-    decks are determined using the get_length method (presumably defined elsewhere in your code). The card backs are drawn as rectangles with the specified size based on the constants SMALL_CARD_SCALE and SMALL_CARD_TEXT_SCALE. 
-    The number of cards in each deck is displayed on the card backs. The method does not return a value; it is responsible for drawing the decks on the canvas.
+    This method utilizes the StdDraw library to draw the player's and CPU's
+    decks on a graphics canvas. It includes the card backs and the number of
+    cards in each deck. The sizes of the decks are determined using the
+    get_length method (presumably defined elsewhere in your code). The card
+    backs are drawn as rectangles with the specified size based on the constants
+    SMALL_CARD_SCALE and SMALL_CARD_TEXT_SCALE.  The number of cards in each
+    deck is displayed on the card backs. The method does not return a value; it
+    is responsible for drawing the decks on the canvas.
      */
     private static void draw_decks(int[] playerDeck, int[] cpuDeck){
         int playerSize = BetterWar.get_length(playerDeck);
@@ -389,7 +461,9 @@ public class WarUI {
     }  
     /*
     Description:
-    Draws the cards on the battlefield on a graphics canvas using the StdDraw library. The cards are taken from the provided bf array and are displayed for both the player and CPU.
+        Draws the cards on the battlefield on a graphics canvas using the
+        StdDraw library. The cards are taken from the provided bf array and are
+        displayed for both the player and CPU.
 
     Parameters:
         bf (int[]): An array representing the cards on the battlefield.
@@ -397,9 +471,13 @@ public class WarUI {
     Returns:
         None
 
-    This method utilizes the StdDraw library to draw the cards from the bf array on a graphics canvas. It separates the cards into two arrays, playerCards and cpuCards, to display them for the player and CPU, 
-    respectively. The cards are drawn using the draw_card_to_canvas method. After drawing the cards, the show_to_canvas method is called to display the changes on the canvas. The method does not return a value; 
-    it is responsible for drawing the cards on the battlefield.
+    This method utilizes the StdDraw library to draw the cards from the bf array
+    on a graphics canvas. It separates the cards into two arrays, playerCards
+    and cpuCards, to display them for the player and CPU, respectively. The
+    cards are drawn using the draw_card_to_canvas method. After drawing the
+    cards, the show_to_canvas method is called to display the changes on the
+    canvas. The method does not return a value; it is responsible for drawing
+    the cards on the battlefield.
      */
     private static void draw_battlefield(int[] bf){
         int size = BetterWar.get_length(bf);
@@ -430,8 +508,12 @@ public class WarUI {
     Returns:
         None
 
-    This method is responsible for pausing the graphics canvas to display any changes for a specified duration, which is determined by the animationTime constant (presumably defined elsewhere in your code). The StdDraw.show() 
-    method is used to show the updated canvas, and the pause duration is set by animationTime. The method does not return a value; it is used to control the animation speed on the canvas. 
+    This method is responsible for pausing the graphics canvas to display any
+    changes for a specified duration, which is determined by the animationTime
+    constant (presumably defined elsewhere in your code). The StdDraw.show() 
+    method is used to show the updated canvas, and the pause duration is set by
+    animationTime. The method does not return a value; it is used to control the
+    animation speed on the canvas. 
     */
     private static void show_to_canvas(){
         StdDraw.pause(animationTime);
@@ -439,7 +521,9 @@ public class WarUI {
     }
     /*
     Description:
-        Draws the entire game state, including the player's deck, the CPU's deck, and the cards on the battlefield, on a graphics canvas using the StdDraw library.
+        Draws the entire game state, including the player's deck, the CPU's
+        deck, and the cards on the battlefield, on a graphics canvas using the
+        StdDraw library.
 
     Parameters:
         bf (int[]): An array representing the cards on the battlefield.
@@ -449,9 +533,13 @@ public class WarUI {
     Returns:
         None
 
-    This method is responsible for drawing the entire game state, including the player's deck, the CPU's deck, and the cards on the battlefield on a graphics canvas. It first clears the 
-    canvas, then calls the draw_decks and draw_battlefield methods to draw the decks and cards on the battlefield. Finally, it uses the show_to_canvas method to display the changes on the canvas. 
-    The method does not return a value; it is used to update the visual representation of the game.
+    This method is responsible for drawing the entire game state, including the
+    player's deck, the CPU's deck, and the cards on the battlefield on a
+    graphics canvas. It first clears the canvas, then calls the draw_decks and
+    draw_battlefield methods to draw the decks and cards on the battlefield.
+    Finally, it uses the show_to_canvas method to display the changes on the
+    canvas.  The method does not return a value; it is used to update the visual
+    representation of the game.
      */
     public static void draw_game(int[] bf, int[] player, int[] cpu){
         StdDraw.clear();
@@ -471,7 +559,12 @@ public class WarUI {
     Returns:
         None
 
-    This method is responsible for drawing a message indicating the winner of the game on the graphics canvas. It sets the font, color, and text position using the StdDraw library and then calls the show_to_canvas method to display the message. The winner parameter specifies the winner of the game. The method does not return a value; it is used to inform the user of the game's outcome visually.
+    This method is responsible for drawing a message indicating the winner of
+    the game on the graphics canvas. It sets the font, color, and text position
+    using the StdDraw library and then calls the show_to_canvas method to
+    display the message. The winner parameter specifies the winner of the game.
+    The method does not return a value; it is used to inform the user of the
+    game's outcome visually.
     */
     public static void draw_winner(String winner){
         Font textFont = new Font("Times New Roman", Font.PLAIN, BIG_CARD_TEXT_SCALE);

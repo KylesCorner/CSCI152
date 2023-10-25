@@ -502,6 +502,47 @@ public class BetterWar {
         "CPU won " + wins[1] + " times.\n" + 
         "Number of cards flipped: " + cardsFlipped);
     }
+    /**
+     * Description:
+     * Ends the game, announces the winner, updates the score, and resets the game state.
+     *
+     * @param winner (String): The name of the winner ("CPU" or player's name).
+     *
+     * This method announces the winner of the game, updates the score based on the
+     * winner, and resets the game state. It takes the name of the winner as a parameter
+     * and adjusts the score and game state accordingly. Additionally, it initiates
+     * a new game by generating a fresh deck of cards, dealing cards to player1 and
+     * player2, and increasing the count of games played.
+     */
+    private static void end_game_with_gui(String winner){
+            WarUI.draw_winner(winner);
+            if(winner == "CPU"){
+                wins[1]++;
+                turn = false;
+            }else{
+                wins[0]++;
+                turn = true;
+            }
+            deck = generate_deck_as_int();
+            player1 = inital_deal(deck);
+            player2 = inital_deal(deck);
+    }
+
+    private static void end_game(String winner){
+            System.out.println(winner + " wins!");
+            if(winner == "CPU"){
+                wins[1]++;
+                turn = false;
+            }else{
+                wins[0]++;
+                turn = true;
+            }
+            deck = generate_deck_as_int();
+            player1 = inital_deal(deck);
+            player2 = inital_deal(deck);
+            numberOfGamesPlayed++;
+            play_again();
+    }
 
     /*
     Description:
@@ -512,7 +553,6 @@ public class BetterWar {
         multiple games or exit.
 
     Parameters:
-
         numberOfGames (int): The total number of games to be played in the simulation.
 
     Returns:
@@ -545,28 +585,12 @@ public class BetterWar {
 
                 // Player left with no cards looses.
                 if(get_length(player1) == 0){
-                    System.out.println("CPU wins!");
-                    turn = false;
-                    wins[1]++;
-                    deck = generate_deck_as_int();
-                    player1 = inital_deal(deck);
-                    player2 = inital_deal(deck);
-                    numberOfGamesPlayed++;
-                    // Prompt user to play again.
-                    play_again();
+                    end_game("CPU");
                     break;
                     
                 }
                 if(get_length(player2) == 0){
-                    System.out.println("Player wins!");
-                    turn = true;
-                    wins[0]++;
-                    deck = generate_deck_as_int();
-                    player1 = inital_deal(deck);
-                    player2 = inital_deal(deck);
-                    numberOfGamesPlayed++;
-                    // Prompt user to play again.
-                    play_again();
+                    end_game("Player");
                     break;
                 }
 
@@ -595,21 +619,11 @@ public class BetterWar {
 
         while(true){
             if(get_length(player1) == 0){
-                WarUI.draw_winner("CPU");
-                turn = false;
-                wins[1]++;
-                deck = generate_deck_as_int();
-                player1 = inital_deal(deck);
-                player2 = inital_deal(deck);
+                end_game_with_gui("CPU");
                 break;
             }
             if(get_length(player2) == 0){
-                WarUI.draw_winner("Player");
-                turn = true;
-                wins[0]++;
-                deck = generate_deck_as_int();
-                player1 = inital_deal(deck);
-                player2 = inital_deal(deck);
+                end_game_with_gui("Player");
                 break;
 
             }

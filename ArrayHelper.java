@@ -400,6 +400,12 @@ public class ArrayHelper {
             print(arrayInput[outIndex]);
         }
     }
+    public static void print(double[][] arrayInput){
+        for(int outIndex = 0; outIndex < arrayInput.length; outIndex++){
+            print(arrayInput[outIndex]);
+        }
+    }
+    
 
     /*
     Description:

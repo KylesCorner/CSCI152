@@ -298,7 +298,9 @@ public class BetterWar {
 
     /*
     Description:
-        Shuffles the order of elements in an integer array representing a deck of cards using the Fisher-Yates shuffle algorithm. This method modifies the original array in place.
+        Shuffles the order of elements in an integer array representing a deck
+        of cards using the Fisher-Yates shuffle algorithm. This method modifies
+        the original array in place.
 
     Parameters:
         deck (int[]): The integer array representing a deck of cards to be shuffled.
@@ -458,6 +460,38 @@ public class BetterWar {
         }
     }
 
+    private static void compare_cards_no_IO(){
+        int card1,card2;
+
+        if(turn){
+        card1 = pull_first(player1);
+        card2 = pull_first(player2);
+        }else{
+        card2 = pull_first(player2);
+        card1 = pull_first(player1);
+        }
+        append_array(battlefield, card1);
+        append_array(battlefield, card2);
+
+        // Winner appends cards to deck. Shuffle.
+        if(battlefield[get_length(battlefield)-2] > battlefield[get_length(battlefield)-1] ){// player 1 wins.
+            int size = get_length(battlefield);
+            for(int i = 0; i < size; i++){
+                append_array(player1, battlefield[i]);
+            }
+            shuffle_deck(player1);
+        } 
+        if(battlefield[get_length(battlefield)-2] < battlefield[get_length(battlefield)-1] ){// player 2 wins.
+            int size = get_length(battlefield);
+            for(int i = 0; i < size; i++){
+                append_array(player2, battlefield[i]);
+            }
+            shuffle_deck(player2);
+        } 
+        if(battlefield[get_length(battlefield)-2] == battlefield[get_length(battlefield)-1] ){// players are equal. Go to war!
+            compare_cards_with_GUI();
+        }
+    }
 
     /*
     Description:
@@ -542,6 +576,17 @@ public class BetterWar {
             player2 = inital_deal(deck);
             numberOfGamesPlayed++;
             play_again();
+    }
+
+    private static void end_game_no_IO(String winner){
+            if(winner == "CPU"){
+                turn = false;
+            }else{
+                turn = true;
+            }
+            deck = generate_deck_as_int();
+            player1 = inital_deal(deck);
+            player2 = inital_deal(deck);
     }
 
     /*
@@ -640,6 +685,40 @@ public class BetterWar {
 
     }
 
+    public static void game_no_IO(int numberOfGames){
+
+        // Game Setup
+        player1 = inital_deal(deck);
+        player2 = inital_deal(deck);
+
+
+        // Repeat till number of games are satisfied.
+        for(int i = 0; i < numberOfGames; i++){
+            while(true){
+
+                // Player left with no cards looses.
+                if(get_length(player1) == 0){
+                    end_game_no_IO("CPU");
+                    break;
+                    
+                }
+                if(get_length(player2) == 0){
+                    end_game_no_IO("Player");
+                    break;
+                }
+
+                compare_cards_no_IO();
+                cardsFlipped+= 2;
+                // reseting the battlefield
+                int size = get_length(battlefield);
+                for(int b = 0; b < size; b++){
+                    battlefield[b] = 0;
+                }
+
+            }
+
+        }
+    }
     public static void main(String[] args) {
 
 

@@ -220,6 +220,7 @@ public class BetterWar {
         }
 
         arr[indexOfFirstValue] = item_to_append;
+        shuffle_deck(arr);
         
     }
 
@@ -489,7 +490,7 @@ public class BetterWar {
             shuffle_deck(player2);
         } 
         if(battlefield[get_length(battlefield)-2] == battlefield[get_length(battlefield)-1] ){// players are equal. Go to war!
-            compare_cards_with_GUI();
+            compare_cards_no_IO();
         }
     }
 
@@ -661,14 +662,15 @@ public class BetterWar {
         player1 = inital_deal(deck);
         player2 = inital_deal(deck);
         WarUI.draw_game(battlefield, player1, player2);
+        String winner;
 
         while(true){
             if(get_length(player1) == 0){
-                end_game_with_gui("CPU");
+                winner = "CPU";
                 break;
             }
             if(get_length(player2) == 0){
-                end_game_with_gui("Player");
+                winner = "Player";
                 break;
 
             }
@@ -682,6 +684,7 @@ public class BetterWar {
                 battlefield[b] = 0;
             }
         }
+        end_game_with_gui(winner);
 
     }
 

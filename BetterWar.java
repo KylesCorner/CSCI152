@@ -724,15 +724,16 @@ public class BetterWar {
     }
     public static void main(String[] args) {
 
+        int animationTime = 0;
 
         // Read command-line argument for number of games. Terminate on invalid input.
-        if(args.length == 1 && Integer.parseInt(args[0]) > 0) numberOfGames = Integer.parseInt(args[0]);
-        else{
-            System.out.println("Enter a positive integer to the command line!");
-            System.exit(0);
+        if(args.length > 0){
+            animationTime = Integer.parseInt(args[0]);
+        }else{
+            System.out.println("Enter an integer to the commandline!");
         }
 
-        game_with_UI(numberOfGames);
+        game_with_UI(animationTime);
 
 
 

@@ -395,12 +395,25 @@ public class ArrayHelper {
         }
         StdOut.println();
     }
+    public static void print(String[] arrayInput){
+        int size = arrayInput.length;
+
+        for(int i = 0; i < size; i++){
+            StdOut.print(arrayInput[i] + " ");
+        }
+        StdOut.println();
+    }
     public static void print(int[][] arrayInput){
         for(int outIndex = 0; outIndex < arrayInput.length; outIndex++){
             print(arrayInput[outIndex]);
         }
     }
     public static void print(double[][] arrayInput){
+        for(int outIndex = 0; outIndex < arrayInput.length; outIndex++){
+            print(arrayInput[outIndex]);
+        }
+    }
+    public static void print(String[][] arrayInput){
         for(int outIndex = 0; outIndex < arrayInput.length; outIndex++){
             print(arrayInput[outIndex]);
         }

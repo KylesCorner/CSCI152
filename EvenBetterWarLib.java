@@ -1,3 +1,46 @@
+/*
+ * Kyle Krstulich
+ * 10/28/23
+ * EvenBetterWarLib.java
+ * 
+For your practical midterm exam you will be extending your game of war (Lab
+3.1).  I would like you to do the following..
+ 
+ 
+ 
+ Refactor your initial implementation of War.java to use at least 3 different
+ static functions within War.java (not including the main method).  Also, create
+ a library called WarLibrary.java in which you implement at least 3 different
+ static functions (use this war library in your War.java program).  
+ 
+ 
+ 
+ Lastly, I would like you to use StdDraw to create a graphical representation of
+ your War game simulator.  For each turn I should see a graphical representation
+ of each card that the user / cpu draws.  Depending on the result you should
+ show who won the last turn as well as how many card(s) each player currently
+ has.  The number of seconds the game pauses (StdDraw.pause()) between turns
+ should be passed in by the user as a command line argument.
+ 
+ For your practical midterm exam you will be extending your game of war (Lab
+ 3.1).  I would like you to do the following..
+ 
+ 
+ 
+ Refactor your initial implementation of War.java to use at least 3 different
+ static functions within War.java (not including the main method).  Also, create
+ a library called WarLibrary.java in which you implement at least 3 different
+ static functions (use this war library in your War.java program).  
+ 
+ 
+ 
+ Lastly, I would like you to use StdDraw to create a graphical representation of
+ your War game simulator.  For each turn I should see a graphical representation
+ of each card that the user / cpu draws.  Depending on the result you should
+ show who won the last turn as well as how many card(s) each player currently
+ has.  The number of seconds the game pauses (StdDraw.pause()) between turns
+ should be passed in by the user as a command line argument.
+ */
 import java.awt.Font;
 
 public class EvenBetterWarLib {

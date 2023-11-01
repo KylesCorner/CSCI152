@@ -52,9 +52,8 @@ public class WarGame {
     public static void game_loop() {
         while (true) {
             // Check if a player has lost; if so, exit the loop
-            if (check_lose()) {
-                break;
-            }
+            if (check_lose()) break;
+            
 
             // Deal new cards to both players
             EvenBetterWarLib.new_cards();

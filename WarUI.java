@@ -94,6 +94,7 @@ public class WarUI {
     }
 
     private static void show_to_canvas(){
+        StdDraw.picture(0, 0, BACKGROUND_PATH);
         StdDraw.pause(animationTime);
         StdDraw.show();
     }
@@ -109,7 +110,6 @@ public class WarUI {
         String winnerCompliled = winner+" Wins!";
         double[] coords = {0,0};
         draw_text(coords,winnerCompliled);
-        show_to_canvas();
 
     }
     

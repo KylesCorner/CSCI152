@@ -1,6 +1,6 @@
 public class SimpleSort{
     static double[] times;
-    static final int AMOUNT_OF_DOUBLES = 10;
+    static final int AMOUNT_OF_DOUBLES = 6;
 
     public static void printArray(int[] myArray){
         for (int i = 0; i < myArray.length; i++){
@@ -48,8 +48,9 @@ public class SimpleSort{
 
         return result;
     }
-    public static void main(String[] args) {
-        int n = Integer.parseInt(args[0]);
+
+    public static void many_trials(int n){
+
         int[] nArray = new int[AMOUNT_OF_DOUBLES];
         double[] times = new double[AMOUNT_OF_DOUBLES];
         double[] doubleTimes = new double[AMOUNT_OF_DOUBLES-1];
@@ -67,7 +68,7 @@ public class SimpleSort{
 
             nArray[i] = n;
             times[i] = timeTrial(n);
-            n += n;
+            n *= 2;
         }
 
         for(int i = 0; i <AMOUNT_OF_DOUBLES-1; i++){
@@ -77,19 +78,39 @@ public class SimpleSort{
 
         printTable(title, nArray, times, doubleTimes, logDoubleTimes);
 
+    }
+
+    public static void singleTrial(int n){
+
+        int[] randomArray = new int[n];
+    
+        for (int i = 0; i < n; i++){
+            randomArray[i] = StdRandom.uniformInt(-1000, 1001);
+        }
+        simpleSort(randomArray);
+    }
+
+    public static void main(String[] args) {
+        int n = Integer.parseInt(args[0]);
+
+       many_trials(n); 
+
+        
         
     }
 
     public static double timeTrial(int n){
         int[] randomArray = new int[n];
+        double time;
     
         for (int i = 0; i < n; i++){
             randomArray[i] = StdRandom.uniformInt(-1000, 1001);
         }
         Stopwatch watch = new Stopwatch();
         simpleSort(randomArray);
+        time = watch.elapsedTime();
 
-        return watch.elapsedTime();
+        return time;
     }
     public static void simpleSort(int[] myArray){
         int temp;
